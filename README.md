@@ -1,4 +1,4 @@
-# Eye-disease-cClassification-and-Detection-using-EfficientNet-AND-Graph-Convolutional-Network
+# Eye-disease-Classification-and-Detection-using-EfficientNet-AND-Graph-Convolutional-Network
 This project is an attempt at diagnosis of serious eye diseases through fundus images and deep learning models. EfficientNet (to extract strong image features) and Graph Convolutional Networks (GCN) (to model spatial relationships) are combined to enhance classification accuracy for four classes:
 
 *Diabetic Retinopathy
