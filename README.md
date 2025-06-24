@@ -18,11 +18,19 @@ Channel-wise wavelet decomposition (LL, HL, LH, HH bands)
 Image resizing to 224x224
 Preprocessing of each image conditionally only if it is not already enhanced.
 
-🔍 EfficientNetB0 Model Architecture 🔹 ImageNet Pretrained
+🔍 Model Architecture
+🔹 EfficientNetB0
+Pretrained on ImageNet
 
-To extract deep features, set include_top=False.
-utilized to create embeddings from previously processed photos.
-EfficientNet features are transformed into nodes for the Graph Convolutional Network (GCN).
-Similarities in space or statistics are used to define edges.
-This graph is used by GCN to categorize illnesses.
-This dual-model pipeline connects graph-based reasoning with image-level processing.
+include_top=False to extract deep features
+
+Used for generating embeddings from preprocessed images
+
+🔹 Graph Convolutional Network (GCN)
+Features from EfficientNet are converted into nodes
+
+Edges are defined based on spatial or statistical similarities
+
+GCN operates on this graph to classify diseases
+
+This dual-model pipeline bridges image-level processing with graph-based reasoning.
