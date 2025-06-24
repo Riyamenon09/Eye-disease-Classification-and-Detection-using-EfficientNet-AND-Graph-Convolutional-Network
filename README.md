@@ -18,15 +18,16 @@ Channel-wise wavelet decomposition (LL, HL, LH, HH bands)
 Image resizing to 224x224
 Preprocessing of each image conditionally only if it is not already enhanced.
 
-🔍 Model Architecture
-🔹 EfficientNetB0
+Model Architecture
+
+-> EfficientNetB0
 Pretrained on ImageNet
 
 include_top=False to extract deep features
 
 Used for generating embeddings from preprocessed images
 
-🔹 Graph Convolutional Network (GCN)
+-> Graph Convolutional Network (GCN)
 Features from EfficientNet are converted into nodes
 
 Edges are defined based on spatial or statistical similarities
