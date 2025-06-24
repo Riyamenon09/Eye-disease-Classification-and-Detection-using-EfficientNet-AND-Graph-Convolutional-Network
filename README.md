@@ -2,8 +2,11 @@
 This project is an attempt at diagnosis of serious eye diseases through fundus images and deep learning models. EfficientNet (to extract strong image features) and Graph Convolutional Networks (GCN) (to model spatial relationships) are combined to enhance classification accuracy for four classes:
 
 *Diabetic Retinopathy
+
 *Cataract
+
 *Glaucoma
+
 *Normal
 
 Blindness and visual impairment are among the major causes. Early diagnosis through AI-based screening can significantly lower morbidity. Unlike CNN-only pipelines, this combination is a hybrid method that leverages CNNs for local image features and GCNs for the structural relationships between them, leading to more sound and explainable learning.
