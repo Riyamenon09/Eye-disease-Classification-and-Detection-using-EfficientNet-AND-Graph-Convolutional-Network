@@ -1,18 +1,68 @@
-This project focuses on automated diagnosis of eye diseases from fundus images using a hybrid deep learning pipeline that integrates EfficientNet for image feature extraction and Graph Convolutional Networks (GCN) for modeling structural relationships. The system classifies images into four categories: Diabetic Retinopathy, Cataract, Glaucoma, and Normal, and further performs severity grading to assess disease progression.
-Key Contributions
+# Eye Disease Classification and Severity Grading using EfficientNet and Graph Convolutional Networks
 
-Image Preprocessing: Applied grayscale conversion, contrast enhancement, wavelet decomposition, and image resizing to enhance discriminative features.
+## 📌 Project Overview
+This project presents an AI-based pipeline for **automated diagnosis of eye diseases** from fundus images.  
+The system leverages **EfficientNet** for powerful image feature extraction and **Graph Convolutional Networks (GCN)** for relational reasoning between features.  
+It classifies fundus images into four categories:  
 
-Hybrid Model Architecture:
+- Diabetic Retinopathy  
+- Cataract  
+- Glaucoma  
+- Normal  
 
-EfficientNetB0 (pretrained on ImageNet, feature extractor) generates deep embeddings from fundus images.
+In addition, a **severity grading module** was developed to provide finer disease progression insights, which is critical for clinical decision support.  
 
-Graph Convolutional Network (GCN) processes these embeddings by constructing a graph where nodes represent features and edges capture spatial/statistical relationships.
+---
 
-Graph Coarsening and Refining techniques were implemented to reduce redundant nodes (coarsening) and progressively restore fine-grained details (refining), improving efficiency and capturing both global and local disease patterns.
+## 🛠️ Methodology
 
-Severity Grading: Developed a grading algorithm that integrates clinical factors (disease-specific risk indicators) with image-based features to automatically quantify disease severity levels.
+### 🔹 Preprocessing
+- Grayscale conversion  
+- Contrast enhancement  
+- Channel-wise wavelet decomposition (LL, HL, LH, HH bands)  
+- Image resizing to 224×224  
+- Conditional preprocessing applied only if not already enhanced  
 
-Outcome
+### 🔹 Model Architecture
+- **EfficientNetB0**  
+  - Pretrained on ImageNet, used with `include_top=False`  
+  - Extracts deep embeddings from preprocessed fundus images  
 
-This dual-model pipeline combines CNN-based local feature extraction with graph-based relational reasoning and hierarchical graph processing (coarsening/refining). The approach improves classification accuracy, robustness to noise, and provides a more clinically interpretable severity assessment.
+- **Graph Convolutional Network (GCN)**  
+  - Converts EfficientNet embeddings into nodes  
+  - Defines edges using spatial and statistical similarities  
+  - Processes the graph to refine disease classification  
+
+- **Graph Coarsening & Refining**  
+  - **Graph Coarsening:** Merges redundant or highly similar nodes, capturing global structural patterns while reducing complexity  
+  - **Graph Refining:** Gradually restores fine-grained details, improving local feature representation and classification robustness  
+
+### 🔹 Severity Grading
+- Researched **clinical biomarkers** and risk factors for each disease  
+- Designed an algorithm that integrates **clinical indicators** with **image-based embeddings**  
+- Automatically quantifies severity levels (e.g., mild, moderate, severe) for each case  
+
+---
+
+## 🎯 Key Outcomes
+- Achieved **high accuracy** in 4-class classification  
+- Enhanced disease representation through **hybrid CNN+GCN modeling**  
+- Introduced **hierarchical graph processing (coarsening/refining)** for improved interpretability and robustness  
+- Developed an **automatic severity grading system** to support early detection and clinical decision-making  
+
+---
+
+## 🚀 Tech Stack
+- Python  
+- TensorFlow / PyTorch  
+- OpenCV, NumPy, Pandas  
+- Matplotlib, Seaborn for visualization  
+
+---
+
+## 📖 Future Work
+- Expand dataset with more diverse clinical fundus images  
+- Integrate **explainable AI (XAI)** for better interpretability in medical diagnosis  
+- Deploy as a **web-based screening tool** for ophthalmologists  
+
+---
