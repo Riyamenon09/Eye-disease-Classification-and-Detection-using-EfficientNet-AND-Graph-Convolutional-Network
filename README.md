@@ -1,37 +1,18 @@
-# Eye-disease-Classification-and-Detection-using-EfficientNet-AND-Graph-Convolutional-Network
-This project is an attempt at diagnosis of serious eye diseases through fundus images and deep learning models. EfficientNet (to extract strong image features) and Graph Convolutional Networks (GCN) (to model spatial relationships) are combined to enhance classification accuracy for four classes:
+This project focuses on automated diagnosis of eye diseases from fundus images using a hybrid deep learning pipeline that integrates EfficientNet for image feature extraction and Graph Convolutional Networks (GCN) for modeling structural relationships. The system classifies images into four categories: Diabetic Retinopathy, Cataract, Glaucoma, and Normal, and further performs severity grading to assess disease progression.
+Key Contributions
 
-*Diabetic Retinopathy
+Image Preprocessing: Applied grayscale conversion, contrast enhancement, wavelet decomposition, and image resizing to enhance discriminative features.
 
-*Cataract
+Hybrid Model Architecture:
 
-*Glaucoma
+EfficientNetB0 (pretrained on ImageNet, feature extractor) generates deep embeddings from fundus images.
 
-*Normal
+Graph Convolutional Network (GCN) processes these embeddings by constructing a graph where nodes represent features and edges capture spatial/statistical relationships.
 
-Blindness and visual impairment are among the major causes. Early diagnosis through AI-based screening can significantly lower morbidity. Unlike CNN-only pipelines, this combination is a hybrid method that leverages CNNs for local image features and GCNs for the structural relationships between them, leading to more sound and explainable learning.
+Graph Coarsening and Refining techniques were implemented to reduce redundant nodes (coarsening) and progressively restore fine-grained details (refining), improving efficiency and capturing both global and local disease patterns.
 
-Images are retrieved from different folders related to the disease classes. Preprocessing involves:
-Grayscale
-Contrast enhancement
-Channel-wise wavelet decomposition (LL, HL, LH, HH bands)
-Image resizing to 224x224
-Preprocessing of each image conditionally only if it is not already enhanced.
+Severity Grading: Developed a grading algorithm that integrates clinical factors (disease-specific risk indicators) with image-based features to automatically quantify disease severity levels.
 
-Model Architecture
+Outcome
 
--> EfficientNetB0
-Pretrained on ImageNet
-
-include_top=False to extract deep features
-
-Used for generating embeddings from preprocessed images
-
--> Graph Convolutional Network (GCN)
-Features from EfficientNet are converted into nodes
-
-Edges are defined based on spatial or statistical similarities
-
-GCN operates on this graph to classify diseases
-
-This dual-model pipeline bridges image-level processing with graph-based reasoning.
+This dual-model pipeline combines CNN-based local feature extraction with graph-based relational reasoning and hierarchical graph processing (coarsening/refining). The approach improves classification accuracy, robustness to noise, and provides a more clinically interpretable severity assessment.
